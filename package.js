@@ -1,6 +1,6 @@
 Package.describe({
   name: 'nucleuside:terminal',
-  version: '0.0.1',
+  version: '0.1.0',
   summary: 'tty.js based terminal emulator for Meteor',
   git: 'https://github.com/nucleuside/meteor-terminal',
   documentation: 'README.md'
