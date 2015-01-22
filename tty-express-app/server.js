@@ -3,9 +3,6 @@ var tty = Npm.require('tty.js'),
 
 
 var app = tty.createServer({
-  "users": {
-    "hello": "world"
-  },
   "port": 3333,
   "hostname": 'localhost',
   "shell": "bash",
