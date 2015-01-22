@@ -1,8 +1,8 @@
 Package.describe({
-  name: 'channikhabra:tty',
+  name: 'nucleuside:terminal',
   version: '0.0.1',
-  summary: 'tty.js for Meteor',
-  git: 'https://github.com/channikhabra/meteor-tty',
+  summary: 'tty.js based terminal emulator for Meteor',
+  git: 'https://github.com/nucleuside/meteor-terminal',
   documentation: 'README.md'
 });
 
