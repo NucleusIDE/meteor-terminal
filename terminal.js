@@ -84,16 +84,30 @@ NucleusTerminal = {
        */
       res.send(
         " \
-        tty.on('connect', function() { \
-        var w = new tty.Window(); \
-        setTimeout(function() { \
-        w.maximize(); \
+        var removeTopBar = function() { \
+        document.getElementsByClassName('grip')[0].remove(); \
         document.getElementsByClassName('bar')[0].remove(); \
         var win = document.getElementsByClassName('window')[0]; \
         win.style.top = '0px'; \
         win.style.paddingTop = '0px'; \
+      }; \
+        \
+        tty.on('connect', function() { \
+        var w = new tty.Window(); \
+        setTimeout(function() { \
+        w.maximize(); \
+        removeTopBar(); \
       }, 1); \
       }); \
+        \
+        /** \
+          * Override destroy method so that user can't destroy the terminal window that is opened in iframe \
+        */ \
+        tty.Window.prototype.destroy = function () { \
+        var w = new tty.Window(); \
+        w.maximize(); \
+        removeTopBar();  \
+      }; \
         ");
     });
 
