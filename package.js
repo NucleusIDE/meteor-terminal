@@ -22,7 +22,10 @@ Package.onUse(function(api) {
   ], ['client']);
 
 
-  api.addFiles('tty-express-app/server.js', ['server']);
+  api.addFiles([
+    'terminal.js',
+    'tty-express-app/server.js'
+  ], ['server']);
 
-  api.export([]);
+  api.export('NucleusTerminal', ['server']);
 });
