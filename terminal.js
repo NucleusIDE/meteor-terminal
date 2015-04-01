@@ -45,10 +45,11 @@ NucleusTerminal = {
     var user = sha1(NucleusTerminal.config.username),
         password = sha1(NucleusTerminal.config.password);
 
+    var users = {};
+    users[user] = password;
+
     var app = tty.createServer({
-      "users": {
-        user : password
-      },
+      "users": users,
       "port": NucleusTerminal.config.port,
       "hostname": NucleusTerminal.config.hostname,
       "shell": NucleusTerminal.config.shell,
