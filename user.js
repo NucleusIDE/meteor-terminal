@@ -17,6 +17,14 @@ var removeTopBar = function() {
 
 tty.on('connect', function() {
   var w = new tty.Window();
+  /**
+   * Let's add message event listeners for executing commands that are sent
+   * by parent window
+   */
+  window.addEventListener('message', function(e) {
+    var command = e.data + '\\r';  // '\\r' because we are including this function as a string in terminal.js
+    w.tabs[0].send(command);
+  });
   setTimeout(function() {
     w.maximize();
     removeTopBar();
